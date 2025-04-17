@@ -129,7 +129,7 @@ section > .last{
     transform: translateX(-50%);
     bottom: 100px;
 }
-section > .last >. title{
+section > .last > .title{
     font-size: 3rem;
 }
 
