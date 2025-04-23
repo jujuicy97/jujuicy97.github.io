@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드형태</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            height: 100vh;
+            perspective: 800px;               /*그냥 body에 사용하면 card의 부모는 container이기때문에 3d적용이 안됨. 그래서 아래의 클래스+트랜스폼 스타일 지정*/
+        }
+        .container{
+            height: 100vh;
+            transform-style: preserve-3d;
+        }
+        .card{
+            height: 300px;
+            width: 150px;
+            background-color: tomato;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;                  /*absolute의 기준이 정해지지 않으면 기준은 viewport*/
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s;
+            backface-visibility: hidden;         /*카드를 뒤집으면 뒷면을 안보이게 처리*/
+        }
+        .card:hover{
+            transform: translate(-50%, -50%) rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">CARD</div>
+    </div>
+</body>
+</html>

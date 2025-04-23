@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜스폼</title>
+</head>
+<style>
+    *{margin: 0; padding: 0;}
+    body{
+        perspective: 800px;                        /*내 눈과 모니터 사이의 원근감을 뜻해서 숫자가 커질수록 멀어진다고 생각하면 됨*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .box{
+        width: 300px;
+        height: 300px;
+        background-color: tomato;
+        transition: all 1s;                        /*transition은 호버처럼 원본에서 바뀐 후가 아니라 원본 자체를 움직이는거라 원본이 기준점*/
+    }
+    .box:hover{
+        /* transform: translateX(70vw);             /*기준점은 div */
+        /* transform: translateY(300px); */
+        /* transform: translate(300px, 300px); */
+        /* transform: translateZ(100px); */
+        transform: rotatey(45deg);
+        /*transform: rotate(45deg);                 /*Z축과 동일함*/
+        /*transform: scaleY(2);                     /*배수를 입력*/
+        /* transform: skew(30deg, 10deg); */
+        /* transform: rotateY(45deg);
+        transform-origin: left center; */
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>

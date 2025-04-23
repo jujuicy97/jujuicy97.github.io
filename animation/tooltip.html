@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세페이지</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrap {
+        display: flex;
+        gap: 2rem;
+      }
+      .wrap > .item {
+        width: 200px;
+        height: 200px;
+        position: relative;
+      }
+      /* .wrap > .item:hover >p{                p태그에 호버를 줄 때
+        opacity: 1;
+      } */
+      .wrap > .item > img:hover + p{            /*이미지에 호버를 줄 때*/
+        opacity: 1;
+      }
+      .wrap > .item > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .wrap > .item > p {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translate(-50%);
+        width: 130%;
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 1rem;
+        opacity: 0;
+        transition: all 1s;
+      }
+      .wrap > .item > p:after{                  /*span 태그를 만든거와 다름 없음*/
+        content: '';
+        position: absolute;
+        background-color: #222;
+        width: 10px;
+        height: 10px;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%) rotate (45deg);
+      }
+    </style>
+  </head>
+
+
+
+  <body>
+    <div class="wrap">
+      <div class="item">
+        <img src="ap.1.jpg" alt="1번째 알파벳" />
+        <p>This HTML Tutorial contains hindreds of HTML example.</p>
+      </div>
+      <div class="item">
+        <img src="ap.2.jpg" alt="2번째 알파벳" />
+        <p>This CSS Tutorial contains hindreds of HTM L example.</p>
+      </div>
+      <div class="item">
+        <img src="ap.3.jpg" alt="3번째 알파벳" />
+        <p>This JS Tutorial contains hindreds of HTML example.</p>
+      </div>
+      <div class="item">
+        <img src="ap.4.jpg" alt="4번째 알파벳" />
+        <p>This Photoshop Tutorial contains hindreds of HTML example.</p>
+      </div>
+    </div>
+  </body>
+</html>
