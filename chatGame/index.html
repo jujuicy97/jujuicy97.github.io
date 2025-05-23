@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="main">
+        <h1>WORD CHAIN GAME</h1>
+        <div id="images">
+          <img src="./images/main-img1.png" alt="메인캐릭터1" class="image1" />
+          <img src="./images/main-img2.png" alt="메인캐릭터2" class="image2" />
+          <img src="./images/Ellipse.png" alt="원형이미지" class="image3" />
+          <img src="./images/dote.png" alt="도트이미지" class="image4" />
+          <img src="./images/Line1.png" alt="실선1" class="image5">
+          <img src="./images/Line2.png" alt="실선2" class="image6">
+          <img src="./images/Line3.png" alt="실선3" class="image7">
+        </div>
+        <div id="input-box">
+          <input
+            type="text"
+            id="start"
+            placeholder="Let's play a word chain game!"
+          />
+          <button>CLICK!</button>
+        </div>
+      </div>
+    </main>
+    <section>
+      <div id="clock">Time left <span>00</span> seconds</div>
+      <div id="chat-all">
+        <!-- <div class="user">
+          <div class="msg">안녕하세요!</div>
+        </div>
+        <div class="chatbot">
+          <img src="./images/chat-icon.png" alt="챗봇아이콘" />
+          <div class="msg">안녕하세요!</div>
+        </div> -->
+      </div>
+      <div class="chat-box">
+        <a href="#"
+          ><img src="./images/chat-icon2.png" alt="채팅창아이콘1"
+        /></a>
+        <input type="text" id="bottomChat">
+        <a href="#"
+          ><img src="./images/chat-icon3.png" alt="채팅창아이콘2"
+        /></a>
+      </div>
+    </section>
+    <script src="./script/script.js"></script>
+  </body>
+</html>
