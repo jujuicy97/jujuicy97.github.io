@@ -1,0 +1,167 @@
+@charset "UTF-8";
+body,main{
+  /* overflow: hidden; */
+}
+main{
+  display: block;
+    height: 100vh;
+}
+#main{
+  height: 100vh;
+  background-color: #BDAAFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8rem;
+  padding-top: 20rem;
+}
+  #main > h1{
+    text-align: center;
+    z-index: 1;
+    /* box-shadow: ; */
+  }
+  #main > #input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #input-box > input {
+    padding: 15px 40px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+  }
+  #input-box > button {
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+  }
+#input-box > button:hover{
+  color: #fff
+}
+
+/*메인 화면 이미지 위치 설정*/
+#images{
+  position: relative;
+}
+#images > .image1{
+  position: absolute;
+  top: -360px;
+  right: 30px;
+  /* top: -200px;
+  right: 100px; */
+}
+#images > .image2{
+  position: absolute;
+  top: -200px;  
+  right: -220px;
+}
+#images > .image3{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 70%);
+}
+#images > .image4{
+  position: absolute;
+  top: -320px;
+  right: -200px;
+}
+#images > .image5{
+  position: absolute;
+  top: -220px;
+  right: 200px;
+}
+#images > .image6{
+  position: absolute;
+  top: -240px;
+  left: 200px;
+}
+#images > .image7{
+  position: absolute;
+  top: -40px;
+}
+/******************2페이지********************/
+section{
+  display: none;
+}
+/*타이머*/
+#clock{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px;
+  background-color: #fff;
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: #333;
+}
+#clock > span{
+  color: #7048FF;
+}
+/*채팅창 전체*/
+#chat-all{
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.user{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 20px;
+}
+.msg{
+  width: 80%;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 30px;
+  
+}
+.user:nth-child(odd){
+  justify-content: flex-start;
+}
+.user:nth-child(even){
+  justify-content: flex-end;
+  
+}
+.user:nth-child(odd) > .msg{
+  border-radius: 30px;
+  border-bottom-left-radius: 8px;
+  background-color: #fff;
+  color: #222;
+}
+.user:nth-child(even) > .msg{
+  background-color: #8F70FF;
+  color: #fff;
+  border-bottom-right-radius: 8px;
+}
+
+
+
+/*하단 채팅창*/
+.chat-box{
+  position: fixed;
+  bottom: 50px;
+  left: 20px;
+  right: 20px;
+  background-color: #fff; 
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100; 
+}
+#bottomChat{
+  width: 70%;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+  outline: none;
+}

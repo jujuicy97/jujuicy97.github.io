@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세페이지</title>
+    <style>
+      * {margin: 0; padding: 0;}
+      a{text-decoration: none; color: inherit;}
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .wrap{
+        display: flex;
+        gap: 2rem;
+      }
+      .wrap > div{
+        width: 300px;
+        height: 300px;
+        border: 1px solid #222;
+      }
+      .wrap > div:nth-child(1){
+        background-image: url(img1.jpg);
+        background-size: cover;
+      }
+      .wrap > div:nth-child(2){
+        background-image: url(2.jpg);
+        background-size: cover;
+      }
+      .wrap > div:nth-child(3){
+        background-image: url(3.jpg);
+        background-size: cover;
+      }
+      .wrap > div >.caption{
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        text-align: center;
+        padding: 1.5rem;
+        box-sizing: border-box;
+        color: #eee;
+        opacity: 0;
+        transition: all 1s;
+      }
+      .wrap > div > .caption > *{
+        margin: 1rem;
+      }
+      .wrap > div > .caption > a{
+        background-color: teal;
+        padding: 5px 10px;
+        border-radius: 3px;
+      }
+      .wrap > div > .caption > a:hover{
+        background-color: #fff;
+        color: #000;
+      }
+      .wrap > div > .caption:hover{
+        opacity: 1;
+      }
+      .wrap > div > .caption > *{
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div>
+        <div class="caption">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, unde!</p>
+            <p>price : $12 → $10</p>
+            <a href="#">View Details</a>
+        </div>
+      </div>
+      <div>
+        <div class="caption">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, unde!</p>
+            <p>price : $12 → $10</p>
+            <a href="#">View Details</a>
+        </div>
+      </div>
+      <div>
+        <div class="caption">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, unde!</p>
+            <p>price : $12 → $10</p>
+            <a href="#">View Details</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

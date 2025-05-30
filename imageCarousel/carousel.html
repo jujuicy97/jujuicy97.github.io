@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <title>Image Carousel</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1f2933;
+      }
+      .slider-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 500px;
+        align-items: center;
+      }
+      .slider-box > .slider > img {
+        width: 230px;
+      }
+      .slider> .list {
+        width: 1200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .list{
+        transition: all 0.5s;
+      }
+      /*active 정가운데 이미지 설정*/
+      .list > img.active{
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1.05);
+        
+      }
+      /*active 이외의 이미지 설정*/
+      .list > img{
+        margin: 0 5px;
+        opacity: 0.3;
+        filter: blur(2.5px);
+        transform: scale(0.9);
+        transition: 1s;
+      }
+      .arrow > img {
+        /* background-color: #d17c78; */
+        margin: 2rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- <h1>About Me</h1> -->
+    </div>
+    <div class="slider-box">
+      <div class="slider">
+        <div class="list">
+          <img src="./Carousel_image/GROWTH.png" alt="스킬 이미지" />
+          <img src="./Carousel_image/BELIEF.png" alt="신념 이미지" /> 
+          <img src="./Carousel_image/INSIGHT.png" alt="소개 이미지" class="active"/>
+          <img src="./Carousel_image/INFJ.png" alt="infj 이미지" />
+          <img src="./Carousel_image/STORY.png" alt="책 이미지" />
+        </div>
+      </div>
+      <div class="arrow">
+        <img src="./Carousel_image/left-img.png" alt="왼쪽 화살표" class="left">
+        <img src="./Carousel_image/right-img.png" alt="오른쪽 화살표" class="right">
+      </div>
+    </div>
+    <script>
+      //변수 선언
+      let intervalId = null; //전역변수로 자동실행/멈춤에 다 적용
+      let current = 1; //현재 슬라이드 인덱스 번호 값
+      const $list = document.querySelector(".list");
+      const $img = document.querySelectorAll(".list > img");
+      const $left = document.querySelector(".left");
+      const $right = document.querySelector(".right");
+      const $arrow = document.querySelectorAll(".arrow > img");
+      const max = $img.length; //length는 인덱스가 아니라 개수 그래로라 1~5까지로 봐야함
+
+
+//3. 자동 슬라이드 재생/멈춤
+const autoSlide = ()=>{
+  current ++;
+  gsap.to(".list",{
+    // x: -$img_width *current,
+      duration: 0.5,
+    onComplete: ()=>{
+      //첫번째 이미지를 마지막에 복제
+      const firstClone = $list.children[0].cloneNode(true);
+      $list.appendChild(firstClone); //appendChild는 마지막에 추가하는 기능
+      //첫번째 이미지는 삭제
+      $list.removeChild($list.children[0]);
+            // console.log(firstClone);
+
+      //chilren[2]에는 opacity값을 1로 지정하고 나머지는 다 0으로 바꾸기
+      // console.log($list.children);
+      //.active에 있는 css를 삭제
+      const elem = document.querySelector(".active");
+      elem.classList.remove("active");
+      //지정한 0~4까지의 길이에서 (위에서 list-children을 지정해놓음)
+      //인덱스 값이 2가 되면 .active 추가 
+      $list.children[2].classList.add("active");
+    }
+  })
+};
+intervalId = setInterval(autoSlide,3000);
+
+//멈춤 (3초마다 자동실행을 left 클릭했을때)
+$left.addEventListener("click",()=>{
+  clearInterval(intervalId);
+  stopNreplay(); //그 후 10초 뒤에 다시 재생되는 함수 추가
+});
+//(3초마다 자동실행을 right 클릭했을때)
+$right.addEventListener("click",()=>{
+  clearInterval(intervalId);
+  stopNreplay(); //그 후 10초 뒤에 다시 재생되는 함수 추가
+});
+
+
+//4. 멈춤 이후 10초 뒤 다시 재생할 함수
+let replay = null; //재시작 관리 함수
+
+const stopNreplay = ()=>{
+  //3초마다 돌아가던 자동 슬라이드 멈추기
+  clearInterval(intervalId);
+  //이전에 설정된 10초짜리 있으면 제거(사용자가 10초가 되기도 전에 누르면 바로 리셋되어야 해서)
+  clearTimeout(replay);
+
+  //10초 후에 자동 슬라이드가 다시 시작되도록 예약
+  replay = setTimeout(()=>{
+    //3초마다 슬라이드 자동실행
+    intervalId = setInterval(autoSlide, 3000);
+  },10000); //10초 기다렸다가
+};
+
+
+//1. 다음버튼 클릭하면 첫번째 이미지가 마지막에 clonenode + remove 반복
+$right.addEventListener("click",()=>{
+ autoSlide();
+ /*여기서 만들었던 함수가 위의 자동슬라이드와 동일하게 사용되어져서 autoSlide라는 함수 하나로 만들고 재사용
+ current ++;
+  gsap.to(".list",{
+    // x: -$img_width *current,
+      duration: 0.5,
+    onComplete: ()=>{
+      //첫번째 이미지를 마지막에 복제
+      const firstClone = $list.children[0].cloneNode(true);
+      $list.appendChild(firstClone); //appendChild는 마지막에 추가하는 기능
+      //첫번째 이미지는 삭제
+      $list.removeChild($list.children[0]);
+            // console.log(firstClone);
+
+      //chilren[2]에는 opacity값을 1로 지정하고 나머지는 다 0으로 바꾸기
+      // console.log($list.children);
+      //.active에 있는 css를 삭제
+      const elem = document.querySelector(".active");
+      elem.classList.remove("active");
+      //지정한 0~4까지의 길이에서 (위에서 list-children을 지정해놓음)
+      //인덱스 값이 2가 되면 .active 추가 
+      $list.children[2].classList.add("active");
+    }
+  })
+    */
+});
+
+//2. 이전버튼을 클릭하면 마지막 이미지가 삭제되고 인덱스4가 인덱스1에 복제
+$left.addEventListener("click",()=>{
+  current --;
+  gsap.to(".list",{
+    duration: 0.5,
+    onComplete: ()=>{
+      // 4이미지를 1에 복제
+      const lastClone = $list.children[$list.children.length -1].cloneNode(true);
+      $list.insertBefore(lastClone,$list.firstChild); //insertBefore는 중간에 추가하는 기능
+      // 4이미지는 삭제
+      $list.removeChild($list.children[$list.children.length -1]);
+
+      //chilren[2]에는 opacity값을 1로 지정하고 나머지는 다 0으로 바꾸기
+      // console.log($list.children);
+      //.active에 있는 css를 삭제
+      const elem2 = document.querySelector(".active");
+      elem2.classList.remove("active");
+      //지정한 0~4까지의 길이에서 (위에서 list-children을 지정해놓음)
+      //인덱스 값이 2가 되면 .active 추가 
+      $list.children[2].classList.add("active");
+    }
+  })
+});
+
+    </script>
+  </body>
+</html>

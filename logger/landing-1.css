@@ -1,0 +1,291 @@
+@charset "UTF-8";
+/* reset.css */
+        *{margin: 0; padding: 0;}
+
+    /* header영역 */
+        header{
+            height: 100vh;                      /*브라우저 한 페이지로 기본사이즈 설정*/
+            background-image: url(./images/forest.jpg);
+            background-size: cover;
+            display: flex;
+            justify-content: center;            /*가로 정렬*/
+            align-items: center;                /*세로 정렬*/
+        }
+        #head{                                  /*아래에서 head로 묶어놔서 한번에 변경 가능*/
+            width: 500px;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #head > p:nth-child(1){                 /*가상 태그 head를 사용, body 영역에서의 자식 설정하여 스타일 지정*/
+            font-size: 4rem;
+            letter-spacing: 1rem;               /*자간 조정*/
+            font-weight: bolder;
+
+        }
+        #head > p:nth-child(2){
+            font-size: 1.2rem;
+            margin: 1rem;                       /*마진값 설정으로 테두리 표시*/
+        }
+        /* #head > div:nth-child(3){ */
+        .button_style{
+            background-color: yellowgreen;
+            width: 150px;
+            font-size: 0.6rem;
+            padding: 10px;
+            border: 2px solid #fff;           /*컨텐츠 주위 색상 영역 채우기*/
+            border-radius: 5px;
+            margin: auto;                       /*자동으로 여백을 균일하게 나누어 주기*/
+            cursor: pointer;                    /*마우스 커서 변경*/
+            color: #fff;
+        }
+        #head > div:nth-child(3):hover{
+            background-color: rgb(84, 112, 27);
+        }
+
+        /* section id=sns 영역 */
+        section#sns{
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+        section#sns > .card{
+            width: 300px;
+            text-align: center;
+        }
+        section#sns > .card > .icon{
+            background-color: #aaa;
+            width: 70px;
+            height: 70px;
+            margin: 20px auto;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;            /*주축에 대한 정렬*/
+            align-items: center;                /*교차축에 대한 정렬*/
+        }
+        header > nav{
+            position: fixed;                     /*해당 height 영역 고정*/
+            width: 100%;
+            /* height: 50px; */
+            align-self: flex-start;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255,255,255,0.7);
+        }
+        header > nav > h1{
+            font-size: 2rem;
+            padding: 20px;
+            background-color: #a2c475;
+            color: #fff;
+        }
+        header > nav > ul > li > a{
+            text-decoration: none;
+        }
+        header > nav > ul{
+            list-style: none;
+            margin-right: 30px;
+        }
+        header > nav > ul > li{
+            display: inline-block;
+            padding: 10px 20px;
+        }
+        header > nav > ul > li:hover{
+            background-color: rgba(0,0,0,0.5);
+        }
+        section#sns > .card > .icon > i{
+            font-size: 2rem;
+            color: #fff;
+        }
+        section#sns > .card > p:nth-of-type(1){
+            font-weight: bolder;
+            font-size: 1.3rem;
+        }
+        section#sns > .card > p:nth-of-type(2){
+            font-size: 0.8rem;
+            color: #333;
+            line-height: 2;
+            padding: 10px;
+        }
+        section#sns >.card > a{
+            text-decoration: none;
+            color: #5d9ad2
+        }
+        section#sns >.card > a > span{
+            font-weight: bolder;
+        }
+
+        /* section id=detail 영역*/
+        section#detail{
+            background-color: #a2c475;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+        }
+        section#life{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        section#detail > div,
+        section#life > div{   
+            width: 400px;
+            padding: 50px;
+        }
+        section#detail > .img{
+            background-image: url(images/note.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        section#life > .img{
+            background-image: url(images/juice.jpg);
+            background-size: cover;
+            background-position: center;
+            margin: 10px;
+        }
+        section#detail > .txt > p:nth-of-type(1),
+        section#life > .txt > p:nth-of-type(1){
+            font-size: 1.3rem;
+            font-weight: bolder;
+        }
+        section#detail > .txt > p:nth-of-type(2),
+        section#life > .txt > p:nth-of-type(2){
+            font-size: 0.8rem;
+            line-height: 2;
+            margin: 10px 0;
+        }
+        section#detail > .txt > p:nth-of-type(3),
+        section#life > .txt > p:nth-of-type(3){
+            margin: 0;
+        }
+
+        /*footer 영역*/
+        footer{
+            padding: 20px;
+            background-color: #6c8848;
+            color: #fff;
+        }
+        footer a{
+            text-decoration: none;
+            color: inherit;
+            font-size: 0.8rem;
+        }
+        footer > nav{
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+
+        }
+        footer > nav >div{
+            flex: 1;
+        }
+        footer > nav > div > p{
+            border-bottom: 1px solid #fff;
+        }
+        footer > nav > div > ul{
+            list-style: none;
+        }
+        footer > nav > div > ul > li{
+            padding: 10px 0;
+        }
+
+        /* content.html > main#cintent 영역*/
+        main#content{
+            width: 50%;
+            margin: 0 auto;
+        }
+        main#content > div{
+            margin: 10px 0;
+        }
+        main#content > .detail > h2,
+        main#about > .title > h2,
+        main#notice > .title >h2{
+            border-left: 10px solid rgb(187, 89, 105);
+            padding-left: 20px;
+            margin: 20px 0;
+            font-size: 1.5rem;
+        }
+        main#content > .detail >p{
+            margin: 20px 0;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        main#content > .detail > img{
+            /*img의 부모는 detail인데, 위드값을 바꾸어도 detail의 부모가 main이기 때문에 main의 wieth값을 100% 따라간다는 의미 */
+            width: 100%;
+        }
+
+        /* about.html > main#about 영역*/
+        main#about > .title{
+            width: 50%;
+            margin: 0 auto;
+        }
+        main#about >.title > p{
+            line-height: 1.5;
+            margin: 10px 0;
+            text-align: justify;
+        }
+        main#about > .detail{
+            background-color: #a2c475;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        main#about > .detail> *{
+            width: 30%;
+            color: #fff;
+        }
+        main#about > .detail > table{
+            border-collapse: collapse;            /*두개로 나누어진 선을 하나로 합치는 것*/
+            margin: 30px;
+        }
+        main#about > .detail > table > tbody > tr{
+            border-bottom: 1px solid #fff;
+            padding: 20px 0;
+        }
+
+        /* notice.html > main#notice 영역*/
+        main#notice > .title{
+            width: 50%;                           /*프레임을 먼저 만들어주는 역할*/
+            margin: 0 auto;                       /*프레임을 먼저 만들어주는 역할*/
+        }
+        main#notice >.title >.contact{
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;                            /*컨텐츠들끼리의 여백*/
+            margin: 30px 0;
+        }
+        main#notice > .title > .contact > .item{
+            border: 1px solid #888;
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+        }
+        main#notice > .title > .contact > .item > div{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #a2c475;
+            margin: 0 auto;
+            line-height: 80px;
+        }
+        main#notice > .title > .contact > .item > div > i{
+            font-size: 2rem;
+            color: #fff;
+        }
+        main#notice > .title > .contact > .item > p{
+            font-size: 1.3rem;
+            font-weight: bolder;
+            margin: 10px 0;
+        }
+        main#notice > .map > h2{
+            text-align: center;
+            background-color: #6c8848;
+            padding: 20px 0;
+        }

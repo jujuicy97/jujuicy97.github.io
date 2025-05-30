@@ -1,0 +1,152 @@
+@charset "utf-8";
+/*전체적인 틀은 모바일 기준*/
+
+body{
+    display: block;
+}
+
+/*header 영역*/
+header{
+    margin: 1rem 0;
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    /* color: #fff; */
+}
+header > h1{
+    padding: 2rem;
+}
+header > .title{
+    display: none;
+}
+/*main 영역*/
+main{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+main > ul{
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    margin: 1rem 0;
+    float: right;
+}
+main > ul > li{
+    flex: 1;  /*flex : 자식에게 부여하는 속성*/
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+main > ul > li.on > a{
+    background-image: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+    color: #333;
+    font-weight: bolder;
+    box-shadow: 0 0 20px rgba(95, 226, 69, 0.5);
+}
+main > ul > li > a{
+    display: block;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+main > section{
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 4rem 0;
+}
+
+article{
+    /* width: 100%; */
+    flex: 1;
+    padding: 0.8rem;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    color: #555;
+}
+/* article:nth-child(2) img{
+    aspect-ratio: 1/1.5;
+    object-fit: cover;
+} */
+article img{
+    width: 100%;
+}
+article h2{
+    font-size: 0.9rem;
+    padding: 0.8rem 0;
+}
+article p{
+    font-size: 0.7rem;
+    text-align: justify;
+    padding-bottom: 0.8rem;
+    word-break: keep-all; /*문장을 단어로 끊어서 양쪽 정렬 시켜주는 속성*/
+}
+
+@media screen and (min-width : 768px){  /*최소 사이즈가 768px일 때부터 변경*/
+    body{
+        display: block;
+    }
+    main > section{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    article{
+        /* width: 40%; */
+        /* 
+        1 : 남은 공간이 있으면 얼마나 늘릴지
+        1 : 공간이 부족하면 얼만큼 줄일지
+        250px : 기본 크기 
+        */
+        flex: 1 1 300px; /*1:1비율인데, 가장 작은 값을 250px로 지정하라는 의미*/
+    }
+}
+
+@media screen and (min-width : 1024px){
+    body{
+        display: flex;
+        align-items: stretch;
+    }
+    header{
+        width: 350px;
+        height: 100vh;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    header > h1{
+        font-size: 2.5rem;
+        padding-top: 10rem;
+    }
+    header > .title{
+    display: block;
+    }
+    header > .title > hr{
+        margin-left: 2rem;
+        width: 30%;
+        outline: none;
+        border: 2px solid #fff;
+    }
+    header > .title > p{
+        font-size: 14px;
+        padding: 0.5rem 2rem;
+        color: #555;
+        margin-top: 5px;
+    }
+    main{
+        padding: 3rem;
+        margin: 0;
+        margin-left: 350px;
+    }
+    section{
+        padding-bottom: 5rem;
+    }
+}
