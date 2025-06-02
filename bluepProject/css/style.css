@@ -265,7 +265,7 @@ section#about{
 }
 .project-wrap > h2{
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 3rem;
   font-size: var(--sub-font);
   color: var(--main-color);
   border: 1px solid var(--main-color);
