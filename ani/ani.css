@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/* ***** */
+
+/* reset */
+*{ margin: 0; padding: 0; box-sizing: border-box;}
+
+h1{
+  font-size: 15rem;
+  text-align: center;
+  margin: 15rem 0;
+}
+span{
+  display: inline-block;
+}
+.letter-A{
+  transform-origin: bottom center;
+}
+.letter-A{color: aqua;}
+.letter-a{color: tomato;}
+.letter-i{color: blueviolet;}
+.letter-m{color: yellowgreen;}
+.letter-a{color: violet;}
+.letter-t{color: bisque;}
+.letter-e{color: thistle;}
+
+/* shape css 설정 */
+.shape{
+  position: absolute;  
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+.square{
+  background-color: aquamarine;
+}
+.circle{
+  border-radius: 50%;
+  background-color: springgreen;
+}
