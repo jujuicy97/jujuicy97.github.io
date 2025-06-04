@@ -4,7 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 //header 영역의 title이 오른쪽에서 왼쪽으로 이동
 const $headerMsg = document.querySelectorAll("header .title li");
 gsap.from($headerMsg,{
-  x :300,
+  x: 300,
   opacity: 0,
   duration: 1,
   stagger:0.5
@@ -64,6 +64,7 @@ $aboutMsg.forEach((msg)=>{
       trigger: msg,
       containerAnimation: horizonScroll, //꼭!필수! 가로 스크롤일 경우
       start: "left 90%",
+      //스크롤 될때마다 실행되게 하는(스크롤을 위로 올려도 실행 가능)
       toggleActions: "play reverse play reverse"
     }
   })
@@ -84,25 +85,87 @@ $keywordList.forEach((elem,idx)=>{  //1,2,3번째 li들이 각각 따로 움직�
   });
 });
 
+
 //item-list//
 
-//project 안에 card item을 계단 형식으로 애니메이션 처리
-const $project = document.querySelectorAll("#projects > .normal");
-$project.forEach((article)=>{
-  const $item = article.querySelectorAll(".item");
-  $item.forEach((item,idx)=>{
-    let posY = 90 - idx*15;
-    gsap.from(item,{
+//project 이동 gsap 애니 (중복되는 gsap이 있어서 함수로 처리)
+const fromTop = (elem,posY)=>{
+    gsap.from(elem,{
       y: 200,
       opacity: 0,
       duration: 1,
       scrollTrigger:{
-        trigger: item,
+        trigger: elem,
         start: `top ${posY}%`,
         end: "top 25%",
-        scrub: true,
+        scrub: 2,
         // markers: true
       }
-    });
+    });  
+}
+//project 안에 card item을 계단 형식으로 애니메이션 처리
+const $project = document.querySelectorAll("#projects > .normal");
+// const $project = document.querySelectorAll("#projects > .project-wrap");
+$project.forEach((article)=>{
+  const $item = article.querySelectorAll(".item");
+  $item.forEach((item,idx)=>{
+    let posY = 90 - idx*15;
+    /*원래 gsap 있던 자리*/
+    fromTop(item,posY);
+  });
+});
+
+//practice project 영역을 계단식 애니메이션 처리
+const $practice = document.querySelectorAll("#projects > .practice .item");
+$practice.forEach((item,idx)=>{
+  let posY = 90 - idx*4;
+  fromTop(item,posY);
+});
+
+//skills h2의 사이즈가 작아지면서 안보이게 처리
+gsap.to("#skills > h2",{
+  scale: 0.5,
+  opacity: 0,
+  duration: 2,
+  scrollTrigger:{
+    trigger: "#skills",
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
+  }
+});
+//skills li들이 차례대로 작은 상태에서 커지게
+const $shapes = document.querySelectorAll("#skills > .skill-item > li");
+gsap.from($shapes,{
+  scale: 0.3,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.1,
+  scrollTrigger:{
+    trigger: "#skills",
+    start: "top 80%",
+    toggleActions: "play reverse play reverse"
+  }
+});
+
+//footer item들이 차례대로 커졌다가 원상태로 복귀
+const $footer = document.querySelectorAll(".text > *");
+gsap.from($footer,{
+  scale: 1.3,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.1,
+  ease: "power2.out",
+  scrollTrigger:{
+    trigger: "footer",
+    start: "top 20%",
+    toggleActions: "play reverse play reverse"
+  }
+});
+
+//home 클릭 시 제일 위로 올라가기
+const $home = document.querySelector("#logo");
+$home.addEventListener("click",()=>{
+  window.scrollTo({
+    top: 0
   });
 });

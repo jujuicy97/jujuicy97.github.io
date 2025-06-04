@@ -10,7 +10,7 @@ html{
   /* 계산 : (10/16)*100 */
   /* font-size: 62.5%; */
   font-size: 0.98vw;
-  behavior: smooth; /*anker기능을 자연스럽게 해주는 기능*/
+  scroll-behavior: smooth; /*anker기능을 자연스럽게 해주는 기능*/
 }
 body{
   background-color: #eee;
@@ -91,6 +91,7 @@ ul.gnb > li::before{
   background-color: var(--main-color);
   z-index: -1;
   transition: 0.5s;
+  /* border-top-left-radius: 20px; */
 }
 ul.gnb > li:hover:before{
   width: 100%;
@@ -105,7 +106,7 @@ ul.gnb > li:hover > a{
 }
 ul.title{
   width: 30%;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 ul.title > li{
   margin: 1rem;
@@ -141,9 +142,10 @@ header > h1{
   font-size: 15rem;
   color: var(--main-color);
   text-align: center;
-  text-align: center;
   position: absolute;
   bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 header > h1:before{
   content: 'PORTFOLIO';
@@ -161,7 +163,8 @@ header > h1:before{
 article{
   width: 100%;
   height: 100vh;
-  border: 2px dashed red;
+  /* 나중에 삭제 (영역을 간편히 보려고 만든 속성*/
+  /* border: 2px dashed red; */
 }
 
 /* about me */
@@ -300,9 +303,9 @@ section#about{
 .item-list > .item > .btn{
   display: flex;
   gap: 1rem;
-
 }
 .item-list > .item > .btn > p{
+  cursor: pointer;
   flex: 1;
   background-color: var(--main-color);
   color: var(--sub-color);
@@ -311,6 +314,9 @@ section#about{
   padding: 10px 0;
   border-radius: 7px;
 }
+.item-list > .item > .btn > p:hover{
+  filter: brightness(70%);
+}  
 .item-detail > li{
   font-size: 1.2rem;
   color: var(--main-color);
@@ -334,4 +340,125 @@ section#about{
   border: 1px solid var(--main-color);
   color: var(--main-color);
   padding: 3px 5px;
+}
+/* practice project는 따로 */
+article.practice{
+  height: auto;
+  padding: 5rem;
+}
+.practice > .item-list{
+  flex-wrap: wrap; /*6개의 item들을 2줄로 설정*/
+  gap: 3rem;
+}
+
+/* skill 영역 */
+section#skills{
+  height: 100vh;
+  position: relative;
+}
+#skills h2{
+  font-size: 6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#skills > .skill-item > li{
+  width: 200px;
+  height: 150px;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  position: absolute;
+}
+#skills > .skill-item > li:hover{
+  filter: brightness(80%);
+}
+/*skill shape 모양 설정*/
+.shape1, .shape8, .shape11{ border-radius: 50%; transform: rotate(-10deg);}
+.shape2, .shape6{ border-radius: 20px; }
+.shape3, .shape12{ clip-path: circle(40%); }
+.shape4, .shape7, .shape9{ clip-path: ellipse(60% 40% at 50% 50%); }
+.shape5, .shape10, .shape13{ clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); }
+
+/*background*/
+.shape1{ background-color: #9670ce }
+.shape2{ background-color: #E3EEB2 }
+.shape3{ background-color: #71C0BB }
+.shape4{ background-color: #4E6688 }
+.shape5{ background-color: #a9b4cc }
+.shape6{ background-color: #F6995C; }
+.shape7{ background-color: #FFF7D4; }
+.shape8{ background-color: #B1C381; }
+.shape9{ background-color: #D2E0FB; }
+.shape10{ background-color: #8294C4; }
+.shape11{ background-color: #FD8A8A; }
+.shape12{ background-color: #205781; }
+.shape13{ background-color: #A8D1D1; }
+
+/*skill position 설정*/
+.shape1{ top: 8%; left: 20%;}
+.shape2{ top: 20%; left: 40%; }
+.shape3{ top: 35%; left: 28%; }
+.shape4{ top: 50%; left: 10%; }
+.shape5{ top: 70%; left: 20%; }
+.shape6{ top: 60%; left: 35%; }
+.shape7{ top: 55%; left: 50%; }
+.shape8{ top: 50%; left: 80%; }
+.shape9{ top: 25%; left: 70%; }
+.shape10{ top: 30%; left: 55%; }
+.shape11{ top: 5%; left: 60%; }
+.shape12{ top: 70%; left: 65%; }
+.shape13{ top: 28%; left: 12%; }
+
+/* footer */
+footer{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer > .container{
+  height: 95%;
+  width: 97%;
+  background-color: var(--main-color);
+  color: var(--sub-color);
+  margin: 2rem;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container > .text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container > .text > p{
+    font-size: 2rem;
+}
+.container > .text > h2{
+  font-size: 8rem;
+  margin-bottom: 2rem;
+}
+.container > .text > .mail{
+  display: flex;
+  gap: 0.5rem;
+}
+.container > .text > .mail > p{
+  font-size: 2rem;
+  font-weight: bolder;
+  background-color: var(--sub-color);
+  color: var(--main-color);
+  padding: 0.5rem 2rem;
+  border-radius: 30px;
+  margin-top: 2rem;
+}
+.container > .text > .mail > p:hover{
+  filter: brightness(80%);
 }

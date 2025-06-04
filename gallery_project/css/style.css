@@ -6,11 +6,11 @@ body {
   font-weight: 100;
 }
 
-body > .cursor {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgb(218, 68, 160);
+body > .cursor{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(218, 68, 160);
 }
 
 /***HEADER****/
