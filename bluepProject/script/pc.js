@@ -1,6 +1,6 @@
-gsap.registerPlugin(ScrollTrigger);
-//header영역//
+(function(){
 
+//header영역//
 //header 영역의 title이 오른쪽에서 왼쪽으로 이동
 const $headerMsg = document.querySelectorAll("header .title li");
 gsap.from($headerMsg,{
@@ -25,7 +25,7 @@ tl.to(".arrow > p",{
   stagger: 0.2,
   duration: 0.2,
   ease: "power1.out"
-})
+},"-=0.1");
 
 //h1태그는 scale이 변경, bounce.out 처리
 gsap.from("header > h1",{
@@ -169,3 +169,5 @@ $home.addEventListener("click",()=>{
     top: 0
   });
 });
+
+})();

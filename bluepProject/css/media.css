@@ -10,6 +10,8 @@ html{
   font-size: 62.5%;
 }
 body{
+  /* ↓ font-size반응형 처리 함수 */
+  /* font-size: clamp(1rem,1vw,1.8rem); */
   background-color: var(--main-color);
   color: var(--sub-color);
 }
@@ -59,7 +61,8 @@ body{
 
 /* header 영역 */
 header{
-  padding-top: 150px;
+  /* padding-top: 20%; */
+  padding-top: 100px;
   height: 100vh;
   position: relative;
   font-size: 3rem;
@@ -68,12 +71,12 @@ nav{
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 .gnb{
   font-size: 4rem;
   font-weight: bolder;
-  width: 50%; /*오른쪽에서 왼쪽으로 채워지는 효과 주려고*/
+  width: 80%; /*오른쪽에서 왼쪽으로 채워지는 효과 주려고*/
 }
 .gnb > li{
   position: relative;
@@ -136,10 +139,11 @@ h1:before{
 .arrow-wrap{
   position: absolute;
   bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 15%;
+  /* transform: translateX(-50%); */
   width: 100px;
   height: 80px;
+  opacity: 0.7;
 }
 .arrow-wrap > div{
   position: absolute;
@@ -152,7 +156,7 @@ h1:before{
   background-color: var(--sub-color);
   border-radius: 10px;
   transform: rotate(30deg);
-  /* animation: rotateBox 5s linear infinite; */
+  animation: rotateBox 5s linear infinite;
 }
 .arrow-wrap > .arrow{
   color: var(--main-color);
@@ -202,6 +206,7 @@ section#about{
 }
 #about .info p{
   text-align: right;
+  word-break: keep-all;
 }
 
 #about .word{
@@ -222,6 +227,7 @@ section#about{
 #about .keyword > li{
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -234,6 +240,9 @@ section#about{
   border-radius: 4rem;
   transition: 0.3s;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  /* 단어 단위로 줄바꿈이 되게 하는 속성 */
+  word-break: keep-all;
+  text-align: center;
 }
 #about .keyword > li > p.yes:hover{
   background-color: var(--sub-color);
@@ -241,3 +250,185 @@ section#about{
 }
 
 /* project */
+#projects > .project-wrap{
+  margin-bottom: 5rem;
+}
+#projects > .project-wrap > h2{
+  border: 1px solid var(--sub-color);
+  font-size: var(--sub-font);
+  border-radius: 3rem;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+#projects > .project-wrap > .item-list{
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+.item-list > .item{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.item-list > .item > h3,
+.item-list > .item > p{
+  padding: 0.2rem;
+}
+.item-list > .item > .item-img {
+  /* width: 100%; */
+  aspect-ratio: 16/9;
+  background-color: #888;
+}
+#projects > .project-wrap > .item-list > li > *{
+  border: 1px solid var(--sub-color);
+  border-top: none;
+}
+#projects > .project-wrap > .item-list > li > .item-title{
+  border-top: 1px solid var(--sub-color);
+  background-color: var(--sub-color);
+  color: var(--main-color);
+}
+#projects > .project-wrap > .item-list > li > .item-detail{
+  background-color: var(--sub-color);
+  color: var(--main-color); 
+}
+.item-detail > li{
+  display: flex;
+  align-items: center;
+}
+.item-detail > li > p{
+  width: 100px;
+  text-align: right;
+  margin-right: 0.5rem;
+}
+.item-detail > li > .tool{
+  display: flex;
+}
+.item-detail > li > .tool > p{
+  margin: 0.5rem 0.3rem;
+  background-color: var(--main-color);
+  color: var(--sub-color);
+  border: 1px solid var(--main-color);
+  border-radius: 20px;
+  padding: 5px;
+}
+.item-list > .item > .btn{
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.item-list > .item > .btn > p{
+  cursor: pointer;
+  flex: 1;
+  background-color: var(--main-color);
+  color: var(--sub-color);
+  text-align: center;
+  padding: 10px 0;
+}
+.item-list > .item > .btn > p:hover{
+  filter: brightness(80%);
+}
+
+/* practice레이아웃 변경 */
+#projects > .practice > .item-list{
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.practice .item{
+  width: 47%;
+}
+.practice .item-detail > li > p{
+  display: none;
+}
+
+/* skills */
+#skills > h2{
+  border: 1px solid var(--sub-color);
+  font-size: var(--sub-font);
+  border-radius: 3rem;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+#skills > .skill-item{
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+#skills > .skill-item > li{
+  background-color: var(--sub-color);
+  color: #333;
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  font-size: 2rem;
+  font-weight: bolder;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+#skills > .skill-item > li:hover{
+  filter: brightness(80%);
+}
+
+/* shape background 색상 */
+#skills > .skill-item > .shape1{ background-color: #9670ce }
+#skills > .skill-item > .shape2{ background-color: #E3EEB2 }
+#skills > .skill-item > .shape3{ background-color: #71C0BB }
+#skills > .skill-item > .shape4{ background-color: #87b9ff }
+#skills > .skill-item > .shape5{ background-color: #a9b4cc }
+#skills > .skill-item > .shape6{ background-color: #F6995C; }
+#skills > .skill-item > .shape7{ background-color: #FFF7D4; }
+#skills > .skill-item > .shape8{ background-color: #B1C381; }
+#skills > .skill-item > .shape9{ background-color: #D2E0FB; }
+#skills > .skill-item > .shape10{ background-color: #8294C4; }
+#skills > .skill-item > .shape11{ background-color: #FD8A8A; }
+#skills > .skill-item > .shape12{ background-color: #359be9; }
+#skills > .skill-item > .shape13{ background-color: #A8D1D1; }
+
+/* footer */
+footer{
+  background-color: var(--sub-color);
+  color: var(--main-color);
+  font-size: 3rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer > .container > .text > h2{
+  font-size: 6rem;
+}
+footer > .container > .text > p{
+  padding: 0 1rem;
+  font-size: 1.5rem;
+}
+footer .text{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: left;
+}
+.mail{
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  */
+  font-size: 2rem;
+}
+.mail > p{
+  background-color: var(--main-color);
+  color: var(--sub-color);
+  padding: 1rem;
+  border-radius: 4rem;
+  margin: 1rem 0;
+}
+.mail > p:hover{
+  filter: brightness(80%);
+}

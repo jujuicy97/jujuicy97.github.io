@@ -9,6 +9,7 @@ html{
   /*font-size를 기본 10px로 지정하는 %*/
   /* 계산 : (10/16)*100 */
   /* font-size: 62.5%; */
+  /* ↓ 1440 기준 -> 10px */
   font-size: 0.98vw;
   scroll-behavior: smooth; /*anker기능을 자연스럽게 해주는 기능*/
 }
@@ -290,16 +291,54 @@ section#about{
   border-top: none;
   font-size: 1.2rem;
 }
-
 .item-list > .item > .item-title{
   border-top: 1px solid var(--main-color); 
   font-size: 1.7rem;
 }
-.item-list > .item > .item-img{
+
+/*Clone Coding부분 이미지 영역*/
+.project-wrap.normal:nth-of-type(1) .item:nth-of-type(1) .item-img {
   width: 100%;
+  background-image: url(../images/tesla-img.png);
   aspect-ratio: 1/0.5;
   background-color: #888;
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  }
+.project-wrap.normal:nth-of-type(1) .item:nth-of-type(2) .item-img { }
+.project-wrap.normal:nth-of-type(1) .item:nth-of-type(3) .item-img { }
+
+
+/*Web Publising부분 이미지 영역*/
+.project-wrap.normal:nth-of-type(2) .item:nth-of-type(1) .item-img {
+  width: 100%;
+  background-image: url(../images/gsap-img.png);
+  aspect-ratio: 1/0.5;
+  background-color: #888;
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
 }
+/* .project-wrap.normal:nth-of-type(2) .item:nth-of-type(2) .item-img {
+  width: 100%;
+  background-image: url(../images/gsap-img.png);
+  aspect-ratio: 1/0.5;
+  background-color: #888;
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+}
+.project-wrap.normal:nth-of-type(2) .item:nth-of-type(3) .item-img {
+  width: 100%;
+  background-image: url(../images/gsap-img.png);
+  aspect-ratio: 1/0.5;
+  background-color: #888;
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+} */
+
 .item-list > .item > .btn{
   display: flex;
   gap: 1rem;
@@ -341,6 +380,7 @@ section#about{
   color: var(--main-color);
   padding: 3px 5px;
 }
+
 /* practice project는 따로 */
 article.practice{
   height: auto;
@@ -350,6 +390,21 @@ article.practice{
   flex-wrap: wrap; /*6개의 item들을 2줄로 설정*/
   gap: 3rem;
 }
+/* practice project 이미지 영역*/
+.practice .item:nth-of-type(1) .item-img { 
+  width: 100%;
+  background-image: url(../images/gsap-img.png);
+  aspect-ratio: 1/0.5;
+  background-color: #888;
+  background-size: cover;       /* 이미지가 영역에 딱 맞게*/
+  background-position: center;  /* 이미지 가운데 정렬 */
+  background-repeat: no-repeat; /* 이미지 반복 방지 */
+}
+/* .practice .item:nth-of-type(2) .item-img { }
+.practice .item:nth-of-type(3) .item-img { }
+.practice .item:nth-of-type(4) .item-img { }
+.practice .item:nth-of-type(5) .item-img { }
+.practice .item:nth-of-type(6) .item-img { } */
 
 /* skill 영역 */
 section#skills{
